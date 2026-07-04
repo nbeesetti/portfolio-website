@@ -5,6 +5,7 @@ import { getFeaturedProjects } from "@/data/projects";
 import { HeroReveal, Reveal } from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import FeaturedProjectCard from "@/components/FeaturedProjectCard";
+import Hero from "@/components/Hero";
 
 /**
  * The hero "spec strip" — the site's signature device: facts set in
@@ -22,46 +23,11 @@ export default function HomePage() {
   return (
     <div className="space-y-28 sm:space-y-36">
       {/* ================= Hero ================= */}
-      <section aria-label="Introduction" className="pt-10 sm:pt-16">
-        <HeroReveal>
-          <p className="mb-6 font-mono text-[12px] uppercase tracking-[0.22em] text-accent">
-            {site.role}
-          </p>
-        </HeroReveal>
-        <HeroReveal delay={0.08}>
-          <h1 className="max-w-4xl font-display text-[2.6rem] font-semibold leading-[1.04] tracking-tight text-ink sm:text-7xl">
-            I build systems that ship —{" "}
-            <span className="text-accent-bright">
-              from ML pipelines to the pixels on top.
-            </span>
-          </h1>
-        </HeroReveal>
-        <HeroReveal delay={0.16}>
-          <p className="mt-7 max-w-2xl text-lg leading-relaxed text-ink-dim">
-            Agentic LLM systems, distributed infrastructure, and full-stack products people
-            actually use — designed with an engineer&apos;s rigor and a product manager&apos;s
-            eye for why it matters.
-          </p>
-        </HeroReveal>
-        <HeroReveal delay={0.24}>
-          <div className="mt-10 flex flex-wrap items-center gap-3">
-            <Link
-              href="/projects"
-              className="rounded-xl bg-accent-soft px-5 py-2.5 text-sm font-medium text-accent-bright ring-1 ring-inset ring-edge-strong transition-colors hover:ring-accent"
-            >
-              Explore the project archive
-            </Link>
-            <Link
-              href="/contact"
-              className="rounded-xl px-5 py-2.5 text-sm text-ink-dim transition-colors hover:text-ink"
-            >
-              Get in touch →
-            </Link>
-          </div>
-        </HeroReveal>
+      <div>
+        <Hero />
 
         {/* Spec strip: ruled, factual, quiet */}
-        <HeroReveal delay={0.34}>
+        <HeroReveal delay={0.42}>
           <div className="mt-16 sm:mt-20">
             <hr className="hairline" aria-hidden="true" />
             <dl className="grid gap-x-10 gap-y-6 py-6 sm:grid-cols-3">
@@ -77,7 +43,7 @@ export default function HomePage() {
             <hr className="hairline" aria-hidden="true" />
           </div>
         </HeroReveal>
-      </section>
+      </div>
 
       {/* ================= Featured projects ================= */}
       <section aria-labelledby="featured-heading">
