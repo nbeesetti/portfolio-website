@@ -15,6 +15,7 @@ const specStrip = [
   { label: "Now", value: "M.S. Computer Science (AI/ML) · Cal Poly SLO · 3.97 GPA" },
   { label: "Previously", value: "Expedia Group · OC United · Cal Poly AIP" },
   { label: "Focus", value: "Agentic AI · Distributed systems · Full-stack product" },
+  { label: "Seeking", value: "New-grad SWE · ML engineer · Product roles" },
 ];
 
 export default function HomePage() {
@@ -30,7 +31,7 @@ export default function HomePage() {
         <HeroReveal delay={0.42}>
           <div className="mt-16 sm:mt-20">
             <hr className="hairline" aria-hidden="true" />
-            <dl className="grid gap-x-10 gap-y-6 py-6 sm:grid-cols-3">
+            <dl className="grid gap-x-10 gap-y-6 py-6 sm:grid-cols-2 lg:grid-cols-4">
               {specStrip.map((item) => (
                 <div key={item.label}>
                   <dt className="mb-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-faint">

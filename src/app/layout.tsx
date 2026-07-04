@@ -48,7 +48,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body className={`${display.variable} ${body.variable} ${mono.variable} antialiased`}>
         <a
           href="#main"

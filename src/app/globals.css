@@ -38,6 +38,9 @@ html {
 body {
   background-color: var(--color-bg);
   color: var(--color-ink);
+  /* The hero uses a full-bleed w-screen wrapper; clip the sliver of
+     horizontal overflow it can create next to the scrollbar. */
+  overflow-x: clip;
   font-family: var(--font-body), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
