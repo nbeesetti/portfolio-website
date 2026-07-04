@@ -53,20 +53,24 @@ export default function ContactPage() {
                 href={channel.href}
                 target={channel.href.startsWith("mailto:") ? undefined : "_blank"}
                 rel={channel.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                className="glass group flex flex-col gap-1 rounded-2xl p-6 transition-all hover:border-edge-strong hover:bg-glass-strong sm:flex-row sm:items-baseline sm:justify-between"
+                className="group relative flex flex-col gap-1 overflow-hidden rounded-2xl bg-accent-soft p-6 ring-1 ring-inset ring-edge-strong transition-colors hover:ring-accent sm:flex-row sm:items-center sm:justify-between sm:p-7"
               >
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-accent-soft opacity-60 blur-3xl transition-opacity duration-300 group-hover:opacity-100"
+                />
                 <div>
-                  <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent-bright">
                     {channel.label}
                   </span>
-                  <p className="mt-1.5 font-display text-lg font-semibold text-ink transition-colors group-hover:text-accent-bright">
+                  <p className="mt-1.5 font-display text-xl font-semibold tracking-tight text-ink transition-colors group-hover:text-accent-bright">
                     {channel.value}
                   </p>
                   <p className="mt-1 text-sm text-ink-dim">{channel.note}</p>
                 </div>
                 <span
                   aria-hidden="true"
-                  className="hidden text-ink-faint transition-transform group-hover:translate-x-0.5 group-hover:text-accent sm:block"
+                  className="hidden text-lg text-accent transition-transform group-hover:translate-x-1 sm:block"
                 >
                   →
                 </span>

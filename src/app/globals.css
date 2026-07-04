@@ -15,12 +15,12 @@
   --color-ink: #e8ecf4;
   --color-ink-dim: #9aa4b9;
   --color-ink-faint: #626e88;
-  --color-accent: #96a9ff;
-  --color-accent-bright: #b5c3ff;
-  --color-accent-soft: rgba(150, 169, 255, 0.13);
+  --color-accent: #c3e162;
+  --color-accent-bright: #d7f28b;
+  --color-accent-soft: rgba(195, 225, 98, 0.12);
   /* Status colors (projects archive) */
-  --color-status-done: #8cd4a9;
-  --color-status-active: #96a9ff;
+  --color-status-done: #96a9ff;
+  --color-status-active: #c3e162;
   --color-status-paused: #e5c07b;
   --color-status-archived: #7a8499;
 
@@ -58,7 +58,7 @@ body::before {
 }
 
 ::selection {
-  background: rgba(150, 169, 255, 0.28);
+  background: rgba(195, 225, 98, 0.3);
 }
 
 /* Visible keyboard focus everywhere */
