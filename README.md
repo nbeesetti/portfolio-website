@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Neeraja Beesetti — Portfolio & Project Archive
 
-## Getting Started
+A dark, glassmorphic portfolio built with **Next.js (App Router) + TypeScript + Tailwind CSS v4 + Framer Motion**. Fully static — no backend, database, CMS, or paid services — and deployable on Vercel's free tier.
 
-First, run the development server:
+## Pages
+
+| Route | Purpose |
+| --- | --- |
+| `/` | Hero → skills → 3–4 featured projects → experience preview → contact CTA |
+| `/projects` | Full archive: filter by category & status, search by title/tech/tags (press `/`) |
+| `/projects/[slug]` | Long-form case study per project (statically generated) |
+| `/resume` | Resume page + PDF download |
+| `/contact` | Contact channels |
+
+## Run it locally
+
+Requires **Node 20+** (see `.nvmrc`).
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # production build (all routes prerender statically)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> Note: on this machine the default `node` is v17. Use `nvm use 20` or
+> `export PATH=/opt/homebrew/opt/node@20/bin:$PATH` first.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Where to edit content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Everything editable lives in `src/data/` — no content is hardcoded in components.
 
-## Learn More
+- **`src/data/projects.ts`** — the file you'll touch most. Each project is one typed object; a copy-paste template lives at the bottom of the file. Notes:
+  - `featured: true` puts a project on the homepage (first 4 shown).
+  - `status`: `completed | in-progress | paused | archived`.
+  - `links` are all optional — use `{ kind: "private" }` for repo-less/internal work, or omit entirely.
+  - Every case-study section (`problem`, `architecture`, `tradeoffs`, `lessons`, …) and every product-thinking field (`userProblem`, `successMetric`, …) is optional and hides itself when empty.
+  - Reorder projects by reordering the array (grouped by `year`, newest first).
+- **`src/data/resume.ts`** — education, experience, skills. Replace `public/resume.pdf` when your resume updates.
+- **`src/data/site.ts`** — name, role line, email, social links, SEO description, and **`url`** (set this to your real domain after deploying — it drives canonical URLs and Open Graph).
+- **`src/app/globals.css`** — the entire color/font token system, if you ever want to retheme.
 
-To learn more about Next.js, take a look at the following resources:
+Open TODOs are marked with `// TODO:` comments — search the repo for `TODO` to find them (site URL, OG image, per-project links, and case-study sections worth expanding).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploy to Vercel (free tier)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Push this folder to a GitHub repo.
+2. Go to [vercel.com/new](https://vercel.com/new), import the repo — Vercel auto-detects Next.js; no configuration needed.
+3. Click **Deploy**.
+4. Afterwards: set `url` in `src/data/site.ts` to your `*.vercel.app` (or custom) domain and push again.
 
-## Deploy on Vercel
+Every route is prerendered at build time, so the site serves as static files — comfortably within free-tier limits.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+  data/          ← all editable content (projects, resume, site config)
+  components/    ← reusable UI (nav, archive, case study, cards, badges)
+  app/           ← routes (App Router), layout, global styles
+public/          ← resume.pdf, future OG image & screenshots
+```
+
+## Accessibility & performance
+
+- Semantic HTML, skip-to-content link, `aria-current` nav, labelled filter groups, live result counts.
+- Full keyboard navigation; visible `:focus-visible` rings; `/` focuses archive search.
+- All animation is disabled under `prefers-reduced-motion`.
+- No canvas/3D/heavy effects — depth comes from CSS gradients and backdrop blur.
