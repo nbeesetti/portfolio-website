@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Neeraja Beesetti — Portfolio & Project Archive
 
 A dark, glassmorphic portfolio built with **Next.js (App Router) + TypeScript + Tailwind CSS v4 + Framer Motion**. Fully static — no backend, database, CMS, or paid services — and deployable on Vercel's free tier.
@@ -66,3 +67,6 @@ public/          ← resume.pdf, future OG image & screenshots
 - Full keyboard navigation; visible `:focus-visible` rings; `/` focuses archive search.
 - All animation is disabled under `prefers-reduced-motion`.
 - No canvas/3D/heavy effects — depth comes from CSS gradients and backdrop blur.
+=======
+# portfolio-website
+>>>>>>> origin/main
